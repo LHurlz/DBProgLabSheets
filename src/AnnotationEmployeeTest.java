@@ -1,39 +1,42 @@
-/**
- * Created by t00036478 on 08/02/2018.
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
  */
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class BasicMovieManager {
+
+/**
+ *
+ * @author mkonda
+ */
+public class AnnotationEmployeeTest {
 
     private SessionFactory factory = null;
 
     private void init() {
         Configuration config = new Configuration().configure();
-        config.addAnnotatedClass(Movie.class);
+        config.addAnnotatedClass(Employee.class);
         factory = config.buildSessionFactory();
     }
 
     private void persist() {
         Session session = factory.getCurrentSession();
         session.beginTransaction();
-        Movie movie = new Movie("Taxi Driver","taxi driver goes completely mental","Scorcese");
-
-        session.save(movie);
+        Employee emp = new Employee("Big Chungus");
+        
+        session.save(emp);
 
         session.getTransaction().commit();
         System.out.println("Done");
     }
 
-
+    
     public static void main(String[] args) {
-        BasicMovieManager p = new BasicMovieManager();
+        AnnotationEmployeeTest p = new AnnotationEmployeeTest();
         p.init();
         p.persist();
     }
 }
-
-
-
-
