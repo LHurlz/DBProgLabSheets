@@ -18,7 +18,7 @@ public class BasicMovieManager {
     private void persist() {
         Session session = factory.getCurrentSession();
         session.beginTransaction();
-        Movie movie = new Movie("Taxi Driver","taxi driver goes completely mental","Scorcese");
+        Movie movie = new Movie("TheMaster","sex","Roman Polanski");
 
         session.save(movie);
 
